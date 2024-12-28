@@ -222,7 +222,7 @@ app.get("/add-text", async (req, res) => {
   }
 });
 app.use(express.static(path.join(__dirname, "./build")));
-app.get("/*", async function (req, res) {
+app.get("/", async function (req, res) {
   res.sendFile(path.join(__dirname, "./build", "index.html"));
 });
 // Start server
