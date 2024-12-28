@@ -221,11 +221,10 @@ app.get("/add-text", async (req, res) => {
     console.log(error);
   }
 });
-
+app.use(express.static(path.join(__dirname, "./build")));
 app.get("/*", async function (req, res) {
-  await res.sendFile(path.join(__dirname, "./build", "index.html"));
+  res.sendFile(path.join(__dirname, "./build", "index.html"));
 });
-
 // Start server
 server.listen(process.env.PORT || 4000, () => {
   console.log(`Server is running on port ${process.env.PORT || 4000}`);
